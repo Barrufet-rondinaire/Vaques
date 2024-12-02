@@ -43,4 +43,15 @@ public class Camio
         }
         return litres;
     }
+
+    public string DonamElsNoms()
+    {
+        var resultat = "";
+        foreach (var vaca in vaques)
+        {
+            resultat += vaca.Nom + " ";
+        }
+
+        return resultat;
+    }
 }

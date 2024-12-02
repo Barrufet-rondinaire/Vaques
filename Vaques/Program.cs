@@ -18,11 +18,27 @@ class Program
         };
         
         // Variables per calcular
-
+        var lletMaxima = 0;
+        var nomsVaques = "";
 
         // El programa
+        foreach (var vacaCandidata in vaques)
+        {
+            var hePogut = camio.PosarVaca(vacaCandidata);
+            if (!hePogut)
+            {
+                if (camio.QuantaLletHiHa() > lletMaxima)
+                {
+                    lletMaxima = camio.QuantaLletHiHa();
+                    nomsVaques = camio.DonamElsNoms();
+                }
+                camio.TreureLesVaques();
+                camio.PosarVaca(vacaCandidata);
+            }
+        }
+        
+        Console.WriteLine($"Vaques {nomsVaques}: {lletMaxima} litres de llet");
 
-        
-        
+
     }
 }
